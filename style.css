@@ -1,0 +1,1011 @@
+@font-face {
+    font-family: 'Vezitsa';
+    src: url('fonts/ofont.ru_Vezitsa.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Good_Vibes';
+    src: url('fonts/ofont.ru_Good Vibes Pro.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Slavianskiy';
+    src: url('fonts/ofont.ru_Slavianskiy.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ru_English';
+    src: url('fonts/ofont.ru_English Rose.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Departura';
+    src: url('fonts/ofont.ru_Departura.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background: #ffffff;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* === БЛОК 1 — ДВЕРИ === */ 
+ .block1 {
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    position: relative;
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+.text-above {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 380px;
+    z-index: 40;
+}
+.title {
+    font-size: 3.2rem;
+    color: #8b0e0e;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease-out forwards;
+}
+.subtitle {
+    font-family: 'Vezitsa', sans-serif;
+    font-size: 40px;
+    color: #8b0e0e;
+    margin: 10px 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease-out 0.4s forwards;
+}
+
+.door-container {
+    position: relative;
+    width: 380px;
+    height: 520px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.frame {
+    position: absolute;
+    top: 0; left: 0;
+    width: 380px;
+    height: 520px;
+    z-index: 30;
+    pointer-events: none;
+}
+.door {
+    position: absolute;
+    top: 90px;
+    width: 190px;
+    height: 320px;
+    z-index: 20;
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.door-left { left: 0; }
+.door-right { right: 0; }
+.door-container.open .door-left { transform: translateX(-190px); }
+.door-container.open .door-right { transform: translateX(190px); }
+
+.photo {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    width: 260px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    
+    transition: opacity 1s ease 1.6s, transform 1s ease 1.6s;
+    z-index: 10;
+}
+.door-container.open .photo { opacity: 1; transform: scale(1); }
+
+/* === БЛОК 2 — Никита & Ирина === */
+ .block2 {
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    /* padding: 1rem 1rem 3rem; */
+    background: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;              /* нужно для правильного позиционирования детей */
+    overflow: hidden;
+}
+
+.date-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000;
+    text-transform: uppercase;
+}
+.month, .year { font-size: 3rem; position: relative; }
+.month::before, .year::after {
+    content: ''; position: absolute; top: 50%; width: 40px; height: 1px; background: #000;
+}
+.month::before { left: -50px; }
+.year::after { right: -50px; }
+.day {
+    font-size: 3.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: #000;
+} 
+
+/* === ИМЕНА + БОЛЬШАЯ БУКВА === */
+ .names-container {
+    position: relative;
+    text-align: center;
+    margin: 0.5rem 0;
+    z-index: 10;
+}
+
+.big-letter {
+    position: absolute; 
+    /* top: 50%; */
+    /* left: 50%; */
+    margin-left: 10px;
+    margin-top: 30px;
+    transform: translate(-50%, -50%);
+    font-family: 'Good_Vibes', serif;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(139, 14, 14, 0.15);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    
+}
+
+.big-letter_i {
+    position: absolute; 
+    /* top: 50%; */
+    /* left: 50%; */
+    margin-left: 280px;
+    margin-top: 170px;
+    transform: translate(-50%, -50%);
+    font-family: 'Good_Vibes', serif;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(139, 14, 14, 0.15);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    
+}
+
+
+.name-nikita, .name-irina {
+    position: relative;
+    z-index: 2;
+    font-family: 'Slavianskiy', cursive;
+    font-size: 6.2rem;
+    font-weight: 700;
+    color: #8b0e0e;
+    line-height: 1.1;
+}
+.name-nikita {
+    margin-right: 300px;
+    margin-bottom: -2.5rem;
+}
+.name-irina {
+    margin-top: 4rem;
+    margin-left: 100px;
+} 
+
+/* === ФОТО — РАБОЧАЯ ВЕРСИЯ === */
+/* .photo-container {
+    
+    --photo-width:  220px;   
+    --photo-height: 490px;   
+
+    width: var(--photo-width);
+    height: var(--photo-height);
+    
+    margin: -2rem auto -30px;   
+    order: 3;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+} */
+/* 
+/* ←←← ЭТО САМОЕ ГЛАВНОЕ — удали ВСЕ остальные упоминания размеров фото! */
+/* .photo-container .couple-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;      или contain, если не хочешь обрезку */
+    /* display: block;
+}  */
+
+/* === ДЕКОР === */
+ /* .decor {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    z-index: 1;
+}
+.leaves-left {
+    position: absolute;
+    left: -284px;
+    bottom: 50px;
+    width: 300px;
+    height: 400px;
+}
+.leaves-right {
+    position: absolute;
+    right: -150px;
+    bottom: 50px;
+    width: 300px;
+    height: 400px;
+}
+.pomegranate {
+    position: absolute;
+    left: -60px;
+    bottom: 20px;
+    width: 80px;
+}  */
+
+/* === БЛОК 3 — Глава 1 === */
+/* .block3 {
+    min-height: 100vh;
+    padding: 0px 0rem 0px;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgb(118, 0, 13); 
+    background-image: 
+        url('images/ornament.JPG'), 
+         url('images/ornament.JPG'); 
+    background-position: top center, bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #000; 
+    text-align: center;
+} */
+
+/* .block3 h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease-out forwards;
+}
+
+.block3 .big-letter {
+    position: absolute;
+    top: 20%;
+    
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 16rem;
+    font-weight: 900;
+    color: rgba(139, 14, 14, 0.15);
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+} */
+
+/* .block3 p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+} 
+
+ .block3 p:nth-child(2) { animation-delay: 0.5s; } 
+.block3 .block3-photo { animation-delay: 1s; } 
+.block3 p:nth-child(4) { animation-delay: 1.5s; } 
+
+.block3 .block3-photo {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin: 2rem auto;
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}  */
+
+
+
+/* === АДАПТИВ === */
+@media (max-width: 480px) {
+    body {
+        background: #ffffff;
+        font-family: 'Playfair Display', serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    .block1 {
+        padding: 0.5rem 1rem 0.5rem !important;
+    }
+
+    .text-above {
+        margin-bottom: 20px !important;
+        width: 260px;
+        z-index: 40;
+        opacity: 1;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        text-align: center;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0;
+        opacity: 1;
+        animation: fadeInDown 1.2s ease-out 0.4s forwards !important;
+    }
+
+    .door-container {
+        position: relative;
+        width: 260px;
+        height: auto !important;
+        min-height: 180px;
+        margin: 0 auto 40px auto !important;
+        overflow: visible !important;
+        z-index: 10;
+    }
+
+    .door-container .frame {
+        position: absolute;
+        width: 160px;
+        height: auto;
+        top: 0 !important;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        max-width: none;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .door {
+        position: absolute;
+        top: 35px !important;
+        width: 45px;
+        height: 150px !important;
+        object-fit: cover;
+        transition: transform 1.2s ease, opacity 0.6s ease 0.6s !important;  /* исчезновение дверей чуть раньше */
+        z-index: 2;
+        transform-origin: center;
+        opacity: 1;
+    }
+
+    .door-left {
+        left: 86px;
+    }
+
+    .door-right {
+        right: 86px;
+    }
+
+    /* Двери уезжают далеко и исчезают */
+    .door-container.open .door-left {
+        transform: translateX(-300px) rotateY(-70deg);
+        opacity: 0;
+    }
+
+    .door-container.open .door-right {
+        transform: translateX(300px) rotateY(70deg);
+        opacity: 0;
+    }
+
+    .photo {
+        position: absolute;
+        top: 50px !important;             /* подкручивай если нужно */
+        left: 50%;
+        transform: translateX(-50%) !important;
+        width: 90px;
+        height: 130px;
+        object-fit: cover;
+        z-index: 1;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        opacity: 1 !important;            /* фото ВСЕГДА видно на 100% */
+        transition: none !important;      /* полностью убрали любую анимацию появления */
+    }
+
+    /* анимации */
+    @keyframes open-doors {
+        0% {}
+        100% { transform: translateX(-1px) rotateY(-6deg); }
+    }
+
+    @keyframes open-doors-right {
+        0% {}
+        100% { transform: translateX(1px) rotateY(6deg); }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* === БЛОК 2 НА МОБИЛКЕ === */
+@media (max-width: 480px) {  /* Обязательно внутри медиа-запроса, чтобы применялось только на мобильных */
+    .block2 {
+        padding: 0.5rem 0.5rem 0.5rem;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem; /* чуть меньше расстояния между элементами */
+    }
+
+    .date-block {
+        gap: 0.4rem;
+        font-size: 0.3rem;
+    }
+
+    .month::before, .year::after { 
+        width: 10px; 
+    }
+
+    .month::before { 
+        left: -25px;
+    }
+
+    .year::after { 
+        right: -25px;
+    }
+
+    .day { 
+        font-size: 1.3rem; 
+    }
+
+    .date-block .month {
+        font-size: 0.6rem;
+    }
+
+    .date-block .year {
+        font-size: 0.6rem;
+    }
+
+    /* === ИМЕНА + БОЛЬШИЕ БУКВЫ === */
+    .names-container {
+        margin-top: 7px; /* если нужно чуть опустить имена относительно даты — подкрути */
+        position: relative;
+    }
+
+    .big-letter {
+        margin-left: 5px;
+        margin-top: 20px;
+        font-size: 3rem;
+    }
+
+    .big-letter_i {
+        margin-left: 70px;
+        margin-top: 50px;
+        font-size: 3rem;
+    }
+
+    .name-nikita { 
+        font-size: 1.5rem; 
+        margin-right: 50px; 
+        margin-bottom: -2.5rem; 
+    }
+
+    .name-irina { 
+        font-size: 1.5rem; 
+        margin-top: 3rem; 
+        margin-left: 70px; 
+    }
+
+    /* === ФОТО — ПОДНИМАЕМ ЕЩЁ БЛИЖЕ К ИМЕНАМ === */
+    .photo-container {
+        width: var(--photo-width, 280px);
+        height: var(--photo-height, 300px);
+        margin: -5rem auto -10px !important;  /* ← УВЕЛИЧИЛ ОТРИЦАТЕЛЬНЫЙ ВЕРХНИЙ МАРЖИН */
+                                              /* Было -3.5rem → стало -5rem = фото поднимается ещё на ~20px вверх */
+                                              /* Если нужно ещё ближе — попробуй -6rem или -7rem */
+        order: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .photo-container .couple-photo {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+  
+
+
+
+
+
+    /* .block3 { padding: 40px 1rem; position: relative;}
+    .block3 h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-top: 4rem;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease-out forwards;
+} */
+    .block3 {
+    min-height: 100vh;
+    padding: 0px 0rem 0px;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgb(118, 0, 13); 
+    background-image: 
+        url('images/ornament.JPG'), 
+         url('images/ornament.JPG'); 
+    background-position: top center, bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #000; 
+    text-align: center;
+} 
+
+ .block3 h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-top: 3rem;
+    opacity: 1;
+    animation: fadeInDown 1.2s ease-out forwards;
+}
+
+
+ .block3 p {
+    top: 15%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    opacity: 1;
+    animation: fadeIn 1.5s ease-out forwards;
+} 
+
+ .block3 p:nth-child(2) { animation-delay: 0.5s; } 
+.block3 .block3-photo { animation-delay: 1s; } 
+.block3 p:nth-child(4) { animation-delay: 1.5s; } 
+
+.block3 .block3-photo {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin: 2rem auto;
+    display: block;
+    opacity: 1;
+    animation: fadeIn 1.5s ease-out forwards;
+}  
+
+    
+    .block3 .big-letter {position: absolute; font-family: 'ru_English'; color: #fff; font-size: 3rem;  margin-top: 60px; margin-left: 60px;}
+    .block3 p { font-size: 0.5rem; color: #ffffff; text-align: left; font-family: 'arial'; margin-left: 40px;}
+    .block3 .p1 { font-size: 0.5rem; color: #ffffff; font-family: 'arial'; text-align: left; margin-top: 40px; margin-left: 90px;}
+    .block3-photo1 .block3-photo { width: 100%; max-width: 240px; margin-top: -10px; margin-left: 100px;}
+
+    .block3 .big-letter-n {
+    font-family: 'ru_English';
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 20px;        /* отступ снизу до следующего текста */
+    margin-left: -300px;          /* ← левее: уменьши это значение (например, 50px, 30px, 20px или даже 0) */
+
+    position: relative;         /* включаем относительное позиционирование */
+    top: -20px;                 /* ← чуть выше (подбери: -10px, -20px и т.д.) */
+    
+    /* Если нужно ещё левее — можно сделать margin-left отрицательным:
+       margin-left: -20px; */
+}
+
+.block3 .p3 {
+    font-size: 0.5rem;          /* если всё ещё мелко — подними до 1.2rem */
+    color: #ffffff;
+    font-family: 'arial';
+    text-align: justify;
+    margin-left: 95px;
+    margin-top: -90px;
+}
+
+    .block3 .p4 { font-size: 0.5rem; color: #ffffff; text-align: left; font-family: 'arial'; margin-left: 40px;}
+    .block3 { padding: 40px 1rem; }
+    
+
+
+
+
+
+.block4 {
+    background: transparent;            /* весь блок сначала прозрачный */
+    padding: 2rem 1rem 2rem;
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    margin: -80px auto 0;               /* прижимаем вверх к блоку 3 — подбери значение (-60px ... -100px) */
+}
+
+/* Внутренний контейнер с белым фоном только под контентом */
+.block4-inner {
+    background: #fff;
+    padding: 3rem 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.photo4 {
+    width: 190px;
+    height: auto;               /* УБИРАЕМ фиксированную высоту 250px!!! */
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+.photo4 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.form {
+    position: relative;
+    width: 180px;
+    margin: -55px auto 0;   /* как было — заходит на фото */
+    display: inline-block;
+    z-index: 2;
+}
+
+.form img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Заголовок */
+.zagolovok {
+    position: absolute;
+    top: 12%;                    /* чуть ниже, чем было */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Vezitsa', sans-serif;
+    color: #ffffff;
+    font-size: 1.15rem;          /* нормальный размер, не огромный */
+    text-align: center;
+    width: 90%;
+    line-height: 1.2;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Адрес */
+.adres {
+    position: absolute;
+    top: 25%;                    /* подвинул вверх, чтобы всё влезло */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Departura', sans-serif;
+    color: #ffffff;
+    font-size: 0.6rem;          /* чуть крупнее оригинала, но аккуратно */
+    text-align: center;
+    width: 88%;
+    line-height: 1.5;            /* хороший межстрочный */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    z-index: 2;
+}
+
+/* Кнопка */
+.carta-btn {
+    position: absolute;
+    bottom: 25%;                  /* ровно внизу формы */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    padding: 0.1rem 0.4rem;
+    background: #8b0e0e;
+    color: #fff !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 3px 8px rgba(139, 14, 14, 0.4);
+    border: 1.8px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.carta-btn:hover {
+    background: #a01a1a;
+    transform: translateX(-50%) translateY(-3px);
+}
+
+
+
+
+    .block5 {
+    background: #ffffff;
+    padding: 2rem 1rem;
+    min-height: auto;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    margin-top: -90px;          /* это у вас уже есть — оставьте или подкрутите */
+    margin-bottom: 0;
+    padding-bottom: 0;          /* УБИРАЕМ нижний отступ */
+}
+
+/* Если после прижатия текст или картинки в блоке 5 слишком близко к верхнему краю — 
+   добавь внутренний отступ сверху */
+.block5 .row {
+    display: block;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;          /* ← добавляет пространство сверху внутри блока */
+}
+
+.block5 .hb5 {
+    font-family: 'Vezitsa', sans-serif;
+    font-size: 2.2rem;
+    color: #8b0e0e;
+    
+    white-space: normal;
+    margin: 0;
+    vertical-align: top;
+    line-height: 0.7;
+    margin-left: 40px;
+}
+
+.block5 .p5 {
+    font-family: 'Departura', sans-serif;
+    font-size: 0.75rem;
+    color: #000000;
+    line-height: 1;
+   
+    margin: 0;
+    vertical-align: top;
+    margin-top: -30px;
+    margin-left: 40px;
+}
+
+.ram {
+    display: flex;
+    justify-content: center;    /* ПО ЦЕНТРУ ПО ГОРИЗОНТАЛИ */
+    margin-bottom: 0.5rem;
+}
+
+
+.block6 {
+    background: transparent;
+    padding: 1rem 1rem 3rem;
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    margin: -60px auto 0;       /* ИЗМЕНИТЕ ЗНАЧЕНИЕ! */
+                                /* Было, например, -150px или 0 */
+                                /* Теперь хватит -30px ... -70px */
+    z-index: 2;
+}
+
+.block6 .ram-img {
+    width: 300px;
+    margin: 0 auto 0;            /* убрал отступ снизу — рамка теперь ближе к таймеру */
+    display: block;
+}
+
+.countdown-title {
+    font-size: 1.5rem;
+    font-family: 'Vezitsa', sans-serif;
+    color: #8b0e0e;
+    text-align: center;
+    margin: -3.5rem auto 1rem;   /* ← Поднял заголовок вверх, чтобы он зашёл внутрь рамки */
+                                 /* -3.5rem — подбери: -3rem (ниже), -4rem (выше) */
+    max-width: 80%;              /* чтобы текст не вылезал за рамку */
+}
+
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;                 /* уменьшил gap — таймер плотнее */
+}
+
+.countdown-inline {
+    font-family: 'Vezitsa', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #000000;
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.countdown-inline span {
+    min-width: 2.2ch;
+    text-align: center;
+}
+
+.labels {
+    font-size: 0.75rem;
+    color: #000;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+    margin-top: -0.5rem;
+}
+
+/* Удаляем все эти отдельные классы — они ломали выравнивание */
+
+.block7{background-color: #ffffff; margin: -60px auto 0;}
+.zag7 h2 { font-family:'Vezitsa';font-size: 1.5rem; color: #8b0e0e; text-align: center; }
+    .par7 p { font-size: 0.8rem; font-family: 'Departura'; text-align: center; color: #000;}
+    /* === ФОРМА — МИНИМАЛИЗМ === */
+/* .rsvp-form {display: flex; flex-direction: column; gap: 1.4rem; max-width: 500px; margin: 0 auto;} */
+
+/* .form-group {text-align: left; position: relative;} */
+.form-group label {display: block; font-family: 'Departura', sans-serif; font-size: 0.7rem; color: #000; margin-bottom: 0.4rem;
+ margin-right: 248px; margin-top: 7px; margin-bottom: 0.3px;}
+
+ .form-group .label1 {display: block; font-family: 'Departura', sans-serif; font-size: 0.7rem; color: #000; margin-bottom: 0.4rem; margin-right: 180px; margin-top: 7px; margin-bottom: 0.3px;}
+.form-group {
+    text-align: center;        /* ВЫРАВНИВАЕТ ТЕКСТ И ПОЛЯ ПО ЦЕНТРУ */
+    position: relative;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+#pair-name-group input {
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #8b0e0e;
+    background: transparent;
+    padding: 0.2rem 0;
+    font-family: 'Departura', sans-serif;
+    font-size: 0.5rem;
+    color: #000;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+#pair-name-group input:focus {
+    border-bottom: 1.5px solid #a01a1a;
+}
+
+/* === ПЛЕЙСХОЛДЕР === */
+.form-group input::placeholder,
+#pair-name-group input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* === РАДИОБАТТОНЫ === */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 0.3rem;
+    padding-left: 3rem;
+    text-align: left;
+}
+
+.radio-group label {
+    font-family: 'Departura', sans-serif;
+    font-size: 0.7rem;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #8b0e0e;
+    
+}
+
+/* === ПОЛЕ ПАРЫ — СКРЫТО ПО УМОЛЧАНИЮ === */
+#pair-name-group {
+    margin-top: 0.6rem;
+}
+
+/* === КНОПКА === */
+.submit-btn {
+    background: #8b0e0e;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 1.5rem auto 0;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(139, 14, 14, 0.3);
+}
+
+.submit-btn:hover {
+    background: #a01a1a;
+    transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-family: 'Departura', sans-serif;
+    font-size: 0.9rem;
+    color: #8b0e0e;
+}
+
+    .dresscode img {
+        width: 150px; /* ЕЩЁ МЕНЬШЕ НА МОБИЛЕ */
+
+    }
+    .dresscode {
+        gap: 3rem;
+    }
+
+
+
+    
+    
+
+} 
