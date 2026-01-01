@@ -357,7 +357,7 @@ body {
     }
 
     .block1 {
-        padding: 0.5rem 1rem 0.5rem !important;
+        padding: 0.5rem 1rem 5rem !important;
     }
 
     .text-above {
@@ -368,7 +368,7 @@ body {
     }
 
     .subtitle {
-        font-size: 20px;
+        font-size: 30px;
         text-align: center;
         height: auto !important;
         margin: 0 !important;
@@ -389,7 +389,7 @@ body {
 
     .door-container .frame {
         position: absolute;
-        width: 160px;
+        width: 200px;
         height: auto;
         top: 0 !important;
         left: 50%;
@@ -401,9 +401,9 @@ body {
 
     .door {
         position: absolute;
-        top: 35px !important;
-        width: 45px;
-        height: 150px !important;
+        top: 55px !important;
+        width: 54px;
+        height: 180px !important;
         object-fit: cover;
         transition: transform 1.2s ease, opacity 0.6s ease 0.6s !important;  /* исчезновение дверей чуть раньше */
         z-index: 2;
@@ -412,11 +412,11 @@ body {
     }
 
     .door-left {
-        left: 86px;
+        left: 76px;
     }
 
     .door-right {
-        right: 86px;
+        right: 76px;
     }
 
     /* Двери уезжают далеко и исчезают */
@@ -435,8 +435,8 @@ body {
         top: 50px !important;             /* подкручивай если нужно */
         left: 50%;
         transform: translateX(-50%) !important;
-        width: 90px;
-        height: 130px;
+        width: 110px;
+        height: 180px;
         object-fit: cover;
         z-index: 1;
         border-radius: 8px;
@@ -471,17 +471,24 @@ body {
   /* === БЛОК 2 НА МОБИЛКЕ === */
 @media (max-width: 480px) {  /* Обязательно внутри медиа-запроса, чтобы применялось только на мобильных */
     .block2 {
-        padding: 0.5rem 0.5rem 0.5rem;
+        background: transparent !important;
+        padding: 0.5rem 0.5rem 1rem;
         min-height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.3rem; /* чуть меньше расстояния между элементами */
+        overflow: visible !important;
     }
 
     .date-block {
+        background: transparent !important;
         gap: 0.4rem;
-        font-size: 0.3rem;
+        font-size: 0.5rem;
+        position: relative;
+        padding: 0 30px;              /* Добавляем боковые отступы, чтобы линии влезли */
+        overflow: visible;            /* Важно! Чтобы псевдоэлементы не обрезались */
+            /* На всякий случай */
     }
 
     .month::before, .year::after { 
@@ -497,43 +504,61 @@ body {
     }
 
     .day { 
-        font-size: 1.3rem; 
+        font-size: 2rem; 
     }
 
     .date-block .month {
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 
     .date-block .year {
-        font-size: 0.6rem;
+        font-size: 1rem;
     }
 
     /* === ИМЕНА + БОЛЬШИЕ БУКВЫ === */
-    .names-container {
-        margin-top: 7px; /* если нужно чуть опустить имена относительно даты — подкрути */
-        position: relative;
+    
+    .block2 {
+        overflow: visible !important;  /* Главное — разрешаем вылезать элементам */
+        background: transparent !important;
+        padding: 0.5rem 0.5rem 1rem;   /* чуть увеличил нижний padding для запаса */
     }
 
+    .names-container {
+        overflow: visible !important;  /* На всякий случай */
+        margin-top: 7px;
+        position: relative;
+        width: 100%;                   /* Чтобы контейнер занимал всю ширину */
+        height: auto;                  /* Автоматическая высота под содержимое */
+    }
+
+    .big-letter,
+    .big-letter_i {
+        overflow: visible !important;  /* Страховка */
+    }
+
+    /* Если нужно чуть больше места сверху/снизу для декоративных букв */
     .big-letter {
-        margin-left: 5px;
-        margin-top: 20px;
-        font-size: 3rem;
+        position: absolute !important;
+        margin-top: 13px;     /* уменьшил с 20px, чтобы верх не обрезался сильно */
+        left: 100px;
+        font-size: 3.2rem;
     }
 
     .big-letter_i {
-        margin-left: 70px;
-        margin-top: 50px;
-        font-size: 3rem;
+        margin-top: 70px;     /* уменьшил с 70px — подбери, чтобы хвост "И" влез */
+        left: 120px;    /* если нужно сдвинуть правее */
+        font-size: 3.2rem;
     }
 
+
     .name-nikita { 
-        font-size: 1.5rem; 
+        font-size: 2.5rem; 
         margin-right: 50px; 
         margin-bottom: -2.5rem; 
     }
 
     .name-irina { 
-        font-size: 1.5rem; 
+        font-size: 2.5rem; 
         margin-top: 3rem; 
         margin-left: 70px; 
     }
@@ -588,7 +613,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     color: #ffffff;
-    overflow: visible;               /* Важно! Чтобы ничего не обрезалось */
+    overflow: visible !important;;               /* Важно! Чтобы ничего не обрезалось */
     box-sizing: border-box;
 }
 
@@ -699,7 +724,7 @@ body {
 }
 
 .photo4 {
-    width: 190px;                    /* ваша ширина */
+    width: 250px;                    /* ваша ширина */
     margin: 0 auto 1.5rem auto;      /* центрирование */
     display: block;
     position: relative;
@@ -716,8 +741,8 @@ body {
 
 .form {
     position: relative;
-    width: 180px;
-    margin: -55px auto 0;   /* как было — заходит на фото */
+    width: 240px;
+    margin: -70px auto 0;   /* как было — заходит на фото */
     display: inline-block;
     z-index: 2;
 }
@@ -736,10 +761,10 @@ body {
     transform: translate(-50%, -50%);
     font-family: 'Vezitsa', sans-serif;
     color: #ffffff;
-    font-size: 1.15rem;          /* нормальный размер, не огромный */
+    font-size: 1.7rem;          /* нормальный размер, не огромный */
     text-align: center;
     width: 90%;
-    line-height: 1.2;
+    line-height: 1;
     text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     pointer-events: none;
     z-index: 2;
@@ -753,7 +778,7 @@ body {
     transform: translateX(-50%);
     font-family: 'Departura', sans-serif;
     color: #ffffff;
-    font-size: 0.6rem;          /* чуть крупнее оригинала, но аккуратно */
+    font-size: 1rem;          /* чуть крупнее оригинала, но аккуратно */
     text-align: center;
     width: 88%;
     line-height: 1.5;            /* хороший межстрочный */
@@ -768,7 +793,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-    padding: 0.1rem 0.4rem;
+    padding: 0.3rem 1.5rem;
     background: #8b0e0e;
     color: #fff !important;
     font-family: 'Playfair Display', serif;
@@ -816,7 +841,7 @@ body {
 
 .block5 .hb5 {
     font-family: 'Vezitsa', sans-serif;
-    font-size: 2.2rem;
+    font-size: 3rem;
     color: #8b0e0e;
     
     white-space: normal;
@@ -828,7 +853,7 @@ body {
 
 .block5 .p5 {
     font-family: 'Departura', sans-serif;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     color: #000000;
     line-height: 1;
    
@@ -864,7 +889,7 @@ body {
 }
 
 .countdown-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: 'Vezitsa', sans-serif;
     color: #8b0e0e;
     text-align: center;
@@ -902,25 +927,66 @@ body {
     letter-spacing: 0.1em;
     display: flex;
     justify-content: center;
-    gap: 3.2rem;
+    gap: 2rem;
     margin-top: -0.5rem;
+    padding-left: 1.9rem;
+    
 }
 
 /* Удаляем все эти отдельные классы — они ломали выравнивание */
 
-.block7{background-color: #ffffff; margin: -60px auto 0;}
-.zag7 h2 { font-family:'Vezitsa';font-size: 1.5rem; color: #8b0e0e; text-align: center; }
-    .par7 p { font-size: 0.8rem; font-family: 'Departura'; text-align: center; color: #000;}
-    /* === ФОРМА — МИНИМАЛИЗМ === */
+.block7 {
+    background-color: #ffffff;
+    margin: -60px auto 0;
+    text-align: center; /* Центрирует всё внутри блока 7 */
+    
+}
+
+.zag7 h2 {
+    font-family: 'Vezitsa';
+    font-size: 2rem;
+    color: #8b0e0e;
+    text-align: center;
+}
+
+.par7 p {
+    font-size: 1rem;
+    font-family: 'Departura';
+    text-align: center;
+    color: #000;
+}
+
+/* === ФОРМА — МИНИМАЛИЗМ === */
 /* .rsvp-form {display: flex; flex-direction: column; gap: 1.4rem; max-width: 500px; margin: 0 auto;} */
-
 /* .form-group {text-align: left; position: relative;} */
-.form-group label {display: block; font-family: 'Departura', sans-serif; font-size: 0.7rem; color: #000; margin-bottom: 0.4rem;
- margin-right: 248px; margin-top: 7px; margin-bottom: 0.3px;}
 
- .form-group .label1 {display: block; font-family: 'Departura', sans-serif; font-size: 0.7rem; color: #000; margin-bottom: 0.4rem; margin-right: 180px; margin-top: 7px; margin-bottom: 0.3px;}
+
+    
+
+.form-group label {
+    display: block; 
+    font-family: 'Departura', sans-serif; 
+    font-size: 1rem; 
+    color: #000; 
+    margin-bottom: 0.4rem;
+    /* margin-right: 248px; */ /* Удалён, чтобы не сдвигать влево */
+    margin-top: 7px; 
+    margin-bottom: 0.3px;
+}
+
+.form-group .label1 {
+    display: block; 
+    font-family: 'Departura', sans-serif; 
+    font-size: 0.7rem; 
+    color: #000; 
+    margin-bottom: 0.4rem; 
+    /* margin-right: 180px; */ /* Удалён, чтобы не сдвигать влево */
+    margin-top: 7px; 
+    margin-bottom: 0.3px;
+}
+
 .form-group {
-    text-align: center;        /* ВЫРАВНИВАЕТ ТЕКСТ И ПОЛЯ ПО ЦЕНТРУ */
+    text-align: center; /* ВЫРАВНИВАЕТ ТЕКСТ И ПОЛЯ ПО ЦЕНТРУ */
     position: relative;
 }
 
@@ -933,11 +999,13 @@ body {
     background: transparent;
     padding: 0.2rem 0;
     font-family: 'Departura', sans-serif;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     color: #000;
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Поля ввода по центру */
 }
 
 .form-group input:focus,
@@ -958,8 +1026,8 @@ body {
     flex-direction: column;
     gap: 0.1rem;
     margin-top: 0.3rem;
-    padding-left: 3rem;
-    text-align: left;
+    padding-left: 0; /* Убрал сдвиг влево */
+    text-align: center; /* Радиокнопки по центру */
 }
 
 .radio-group label {
@@ -974,34 +1042,40 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    
+    justify-content: center; /* Текст с радиокнопкой по центру */
 }
 
 .radio-group input[type="radio"] {
     accent-color: #8b0e0e;
-    
 }
 
 /* === ПОЛЕ ПАРЫ — СКРЫТО ПО УМОЛЧАНИЮ === */
 #pair-name-group {
     margin-top: 0.6rem;
 }
+/* Обертка специально для центрирования только кнопки */
+.submit-button-wrapper {
+    display: flex;
+    justify-content: center;    /* Центрирует кнопку по горизонтали */
+    margin: 2rem 0 0;           /* Отступ сверху вместо прежнего на кнопке */
+}
 
-/* === КНОПКА === */
+/* Сама кнопка — убираем лишние маржины */
 .submit-btn {
     background: #8b0e0e;
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-weight: 700;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;     /* чуть шире для красоты */
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    margin: 1.5rem auto 0;
+    margin: 0;                  /* Убираем все маржины — центрирует обертка */
     display: block;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(139, 14, 14, 0.3);
+    width: fit-content;
 }
 
 .submit-btn:hover {
@@ -1016,13 +1090,13 @@ body {
     color: #8b0e0e;
 }
 
-    .dresscode img {
-        width: 150px; /* ЕЩЁ МЕНЬШЕ НА МОБИЛЕ */
+.dresscode img {
+    width: 150px; /* ЕЩЁ МЕНЬШЕ НА МОБИЛЕ */
+}
 
-    }
-    .dresscode {
-        gap: 3rem;
-    }
+.dresscode {
+    gap: 3rem;
+}
 
 
 

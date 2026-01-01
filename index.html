@@ -194,7 +194,9 @@
         </div>
 
         <!-- КНОПКА ОТПРАВИТЬ -->
-        <button type="submit" class="submit-btn">Отправить</button>
+        <div class="submit-button-wrapper">
+            <button type="submit" class="submit-btn">Отправить</button>
+        </div>
         <p class="form-status"></p>
     </form>
 </section>
@@ -311,19 +313,40 @@
     });
 </script>
 <script>
-// Автоматическое открытие дверей через 1.2 секунды после загрузки страницы
+// Ждём полной загрузки всех нужных картинок, потом открываем двери
 document.addEventListener('DOMContentLoaded', () => {
     const doorContainer = document.getElementById('door-container');
-    
-    if (doorContainer) {
-        setTimeout(() => {
-            doorContainer.classList.add('open');
-            console.log('Двери открылись! 🚪✨');
-        }, 1200); // 1.2 секунды задержки — можно изменить на 800, 1500 и т.д.
+    const imagesToLoad = [
+        'images/frame.png',
+        'images/left.jpg',
+        'images/right.jpg',
+        'images/photo.jpg'
+    ];
+
+    let loadedCount = 0;
+    const totalImages = imagesToLoad.length;
+
+    if (totalImages === 0) {
+        doorContainer.classList.add('open');
+        return;
     }
+
+    imagesToLoad.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === totalImages) {
+                // Все картинки загрузились — открываем двери с небольшой задержкой для красоты
+                setTimeout(() => {
+                    doorContainer.classList.add('open');
+                }, 300); // 0.3 секунды после загрузки
+            }
+        };
+    });
 });
 
-// Опционально: открытие по тапу/клику (очень удобно на мобильных)
+// По-прежнему оставляем открытие по клику/тапу (удобно на мобильных)
 document.querySelector('.door-container').addEventListener('click', function() {
     this.classList.add('open');
 });
